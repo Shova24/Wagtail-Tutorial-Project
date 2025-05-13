@@ -1,4 +1,5 @@
-{% load static wagtailcore_tags wagtailuserbar %}
+{# Remove wagtailuserbar: #}
+{% load static wagtailcore_tags %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -23,30 +24,38 @@
         <base target="_blank">
         {% endif %}
 
+        {# Add supported color schemes: #}
+        <meta name="color-scheme" content="light dark">
+
+        {# Add a favicon with inline SVG: #}
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍩</text></svg>"/>
+
         {# Global stylesheets #}
-        <link rel="stylesheet" type="text/css" href="{% static 'css/myblogs.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/mysite.css' %}">
 
         {% block extra_css %}
         {# Override this in templates to add extra stylesheets #}
         {% endblock %}
     </head>
 
-<body class="{% block body_class %}{% endblock %}">
-    {% wagtailuserbar %}
+    <body class="{% block body_class %}{% endblock %}">
+        {# Remove  wagtailuserbar: #}
 
-    {# Add your header template to your base template: #}
-    {% include "includes/header.html" %}
+        {% include "includes/header.html" %}
 
-    {% block content %}{% endblock %}
+        {# Wrap your block content  within a <main> HTML5 tag: #}
+     <main id="main">
+            {% block content %}{% endblock %}
+        </main>
 
-    {% include "includes/footer.html" %}
+        {% include "includes/footer.html" %}
 
-    {# Global javascript #}
+        {# Global javascript #}
 
-    <script type="text/javascript" src="{% static 'js/mysite.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/mysite.js' %}"></script>
 
-    {% block extra_js %}
-    {# Override this in templates to add extra javascript #}
-    {% endblock %}
-</body>
+        {% block extra_js %}
+        {# Override this in templates to add extra javascript #}
+        {% endblock %}
+    </body>
 </html>
