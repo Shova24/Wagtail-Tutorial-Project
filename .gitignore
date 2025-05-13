@@ -1,0 +1,53 @@
+# Virtual environment
+.venv/
+env/
+venv/
+
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE/editor files
+.vscode/
+*.code-workspace
+.idea/
+
+# Django/Wagtail files
+db.sqlite3
+*.log
+
+# Byte-compiled / distribution / packaging
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+parts/
+var/
+*.bak
+
+# pip cache
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+coverage.xml
+
+# MyPy
+.mypy_cache/
+
+# Test reports
+.junit/
+.pytest_cache/
+
+# Media files (optional – if storing locally)
+media/
